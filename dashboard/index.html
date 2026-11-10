@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI SRE Agent</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>AI SRE Agent</h1>
+    <div class="controls">
+      <select id="scenario"></select>
+      <button id="break" class="danger">Break it</button>
+    </div>
+  </header>
+
+  <main>
+    <aside>
+      <h2>Incidents</h2>
+      <ul id="list"></ul>
+      <p id="empty" class="muted">No incidents yet. Pick a scenario and press "Break it".</p>
+    </aside>
+
+    <section id="detail" hidden>
+      <div class="head">
+        <div>
+          <h2 id="title"></h2>
+          <p class="muted" id="subtitle"></p>
+        </div>
+        <div class="badges">
+          <span id="severity" class="badge"></span>
+          <span id="status" class="badge"></span>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card" id="hypothesis-card">
+          <h3>Root cause hypothesis</h3>
+          <p id="cause" class="muted">Investigating...</p>
+          <ul id="evidence"></ul>
+          <p class="muted small" id="confidence"></p>
+        </div>
+
+        <div class="card" id="approval-card" hidden>
+          <h3>Proposed action</h3>
+          <p id="action-text"></p>
+          <p class="muted small" id="action-extra"></p>
+          <input id="comment" placeholder="Optional comment">
+          <div class="row">
+            <button id="approve" class="primary">Approve</button>
+            <button id="reject">Reject</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Live agent timeline</h3>
+        <ol id="timeline"></ol>
+      </div>
+
+      <div class="card" id="postmortem-card" hidden>
+        <h3>Postmortem</h3>
+        <div id="postmortem"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
